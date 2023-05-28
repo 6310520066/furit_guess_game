@@ -11,7 +11,7 @@ gcc -o client client.c
 ./server
 ```
 
-##### 2<sup>nd</sup> terminal for 1st client
+##### 2<sup>nd</sup> terminal for 1<sup>st</sup> client
 ```
 ./client
 ```
