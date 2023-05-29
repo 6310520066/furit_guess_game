@@ -62,7 +62,7 @@ int main() {
             break;
         }
 
- if (strstr(message, "Congratulations!")) {
+ if (strstr(message, "Congratulations!") || strstr(message, "Game over")) {
         printf("%s", message);
            break;
  }
