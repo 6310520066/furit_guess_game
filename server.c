@@ -97,6 +97,7 @@ void* client_handler(void* arg) {
                 sprintf(congrats_message, "\n\nCongratulations! \nYou guessed the word '%s' correctly. \n", client->current_word);
                 write(client_sockfd, congrats_message, strlen(congrats_message));
                 close(client_sockfd);
+                printf("Client disconnected \n");
                 break;
             } else {
                 // correct guess message

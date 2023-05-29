@@ -41,12 +41,16 @@ int main() {
     // input 1 letter then send it to server
     while (1) {
         // user input
-        printf("Enter your guess letter: ");
+        printf("Enter your guess letter (or 'quit' to exit): ");
         fgets(message, MAX_MSG, stdin);
         message[strcspn(message, "\n")] = '\0';
 
         // send input to server
         write(client_sockfd, message, strlen(message));
+
+ if (strcmp(message, "quit") == 0) {
+            break;
+        }
 
         // get server response
         memset(message, 0, MAX_MSG);
@@ -58,12 +62,18 @@ int main() {
             break;
         }
 
+ if (strstr(message, "Congratulations!")) {
+        printf("%s", message);
+           break;
+ }
+
         // Print the server response
         printf("%s", message);
     }
 
     // Close the client socket
     close(client_sockfd);
+    printf("Disconnected from server \n");
 
     return 0;
 }
